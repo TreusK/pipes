@@ -1,0 +1,127 @@
+/* General */
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+@font-face {
+	font-family: "Play";
+	src: url('./fonts/Play-Regular.ttf') format('truetype');
+}
+
+body {
+	background: #f0f0f0;
+	min-width: 400px;
+	font-family: "Play", sans-serif;
+}
+
+
+
+/* Header */
+
+header {
+	margin: 0 auto;
+	text-align: center;
+	background: #333;
+	color: white;
+	padding: 20px 0 5px 0;
+	position: sticky;
+	top: -170px;
+}
+
+header h1 {
+	padding: 50px;
+	font-size: 50px;
+	color: orange;
+}
+
+
+#roomTypesBtns {
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	gap: 20px;
+}
+
+.room {
+	padding: 8px 5px;
+	border-radius: 2px;
+	border-bottom: 2px solid white;
+	cursor: pointer;
+	transition: color .4s, border .4s;
+}
+
+.room:hover, .roomActive {
+	color: orange;
+	border-bottom: 2px solid orange;
+	transition: color .5s, border .5s;
+}
+
+
+
+/* Main */
+
+main {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	background: white;
+	color: #333;
+	border-left: 2px solid #333;
+	border-right: 2px solid #333;
+	min-height: 100vh;
+	min-width: 300px;
+}
+
+.twoDeptos {
+	font-size: 0.8rem;
+	padding: 20px;
+	color: red;
+	text-align: right;
+}
+
+h2 {
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.pipesContainer {
+	border-bottom: solid 1px black;
+	padding-bottom: 50px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.pipesCardsContainer {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.cardImgContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.pipesCard {
+	min-height: 100px;
+	border: solid 1px gray;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.pipesExtras .pipesCardsContainer .pipesCard {
+	min-height: auto;
+}
+
+.amount {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
