@@ -1,12 +1,14 @@
-import { type1, type2, type3, type4 } from './obj.js'
-
 let pipes110 = document.querySelector('.pipes110');
 let pipes63 = document.querySelector('.pipes63');
 let pipes50 = document.querySelector('.pipes50');
 let pipes40 = document.querySelector('.pipes40');
 let pipesExtras = document.querySelector('.pipesExtras');
-
 let rooms = document.querySelectorAll('.room');
+let firstMain = document.querySelector('.firstMain');
+let normalMain = document.querySelector('.normalMain');
+
+//State of main
+let firstMainState = true;
 
 rooms.forEach(room => room.addEventListener('click', activateRoom))
 
@@ -20,6 +22,12 @@ function activateRoom(e) {
 	})
 
 	e.target.classList.add("roomActive");
+
+	if(firstMainState) { 
+		firstMain.classList.add('hide');
+		normalMain.classList.remove('hide');
+		firstMainState = false;
+	}
 
 	switch(e.target.classList[1]) {
 	  	case 'type1': makeAllCards(type1);
@@ -46,6 +54,7 @@ function makeCards(obj, category) {
 
 	//Loop for cards
 	for(let prop in obj) {
+		if(obj[prop][0] == 0) { continue }
 		let divCard = document.createElement('div');
 		divCard.className = "pipesCard";
 
@@ -111,3 +120,221 @@ function makeAllCards(type) {
 	makeCards(type.pipes40, 40);
 	makeCards(type.extras, 'Extras');
 }
+
+
+//Deptos obj 
+//Deptos tipo 1
+let type1 = {
+	pipes110: {
+		"caño 110 4m": [10, './imgs/110 4m.png'],
+		"caño 110 2m": [20, './imgs/110 2m.png'],
+		"caño 110 1m": [30, './imgs/110 1m.png'],
+		"caño 110 50cm": [0, './imgs/110 30cm.png'],
+		"caño 110 30cm": [4, './imgs/110 30cm.png'],
+		"ramal Y 110 110": [2, './imgs/ramal Y 110.png'],
+		"ramal Y 110 64": [2, './imgs/ramal Y 110 64.png'],
+		"ramal L c/vent": [2, './imgs/ramal L 110 ventilacion.png'],
+		"curva 110 45'": [2, './imgs/curva 110 45 grados.png'],
+		"curva 110 90'": [2, './imgs/codo 110 90 grados.png'],
+	},
+
+	pipes63: {
+		"caño 63 4m": [0, './imgs/63 4m.png'],
+		"caño 63 2m": [6, './imgs/63 2m.png'],
+		"caño 63 1m": [0, './imgs/63 1m.png'],
+		"caño 63 50cm": [2, './imgs/63 30cm.png'],
+		"caño 63 30cm": [8, './imgs/63 30cm.png'],
+		"ramal Y 63 63": [2, './imgs/ramal Y 63.png'],
+		"curva 63 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 63 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes50: {
+		"caño 50 4m": [0, './imgs/50 4m.png'],
+		"caño 50 2m": [6, './imgs/50 2m.png'],
+		"caño 50 1m": [0, './imgs/50 1m.png'],
+		"caño 50 50cm": [2, './imgs/50 30cm.png'],
+		"caño 50 30cm": [8, './imgs/50 30cm.png'],
+		"curva 50 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 50 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes40: {
+		"caño 40 4m": [0, './imgs/40 4m.png'],
+		"caño 40 2m": [6, './imgs/40 2m.png'],
+		"caño 40 1m": [0, './imgs/40 1m.png'],
+		"caño 40 50cm": [2, './imgs/40 30cm.png'],
+		"caño 40 30cm": [8, './imgs/40 30cm.png'],
+		"curva 40 45'": [4, './imgs/curva 63 45 grados.png'],
+		"curva 40 90'": [18, './imgs/codo 63 90 grados.png'],
+	},
+};
+
+
+
+
+
+//Deptos tipo 2
+let type2 = {
+	pipes110: {
+		"caño 110 4m": [4, './imgs/110 4m.png'],
+		"caño 110 2m": [0, './imgs/110 2m.png'],
+		"caño 110 1m": [4, './imgs/110 1m.png'],
+		"caño 110 50cm": [0, './imgs/110 30cm.png'],
+		"caño 110 30cm": [4, './imgs/110 30cm.png'],
+		"ramal Y 110 110": [2, './imgs/ramal Y 110.png'],
+		"ramal Y 110 64": [2, './imgs/ramal Y 110 64.png'],
+		"ramal L c/vent": [2, './imgs/ramal L 110 ventilacion.png'],
+		"curva 110 45'": [2, './imgs/curva 110 45 grados.png'],
+		"curva 110 90'": [2, './imgs/codo 110 90 grados.png'],
+	},
+
+	pipes63: {
+		"caño 63 4m": [0, './imgs/63 4m.png'],
+		"caño 63 2m": [6, './imgs/63 2m.png'],
+		"caño 63 1m": [0, './imgs/63 1m.png'],
+		"caño 63 50cm": [2, './imgs/63 30cm.png'],
+		"caño 63 30cm": [8, './imgs/63 30cm.png'],
+		"ramal Y 63 63": [2, './imgs/ramal Y 63.png'],
+		"curva 63 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 63 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes50: {
+		"caño 50 4m": [0, './imgs/50 4m.png'],
+		"caño 50 2m": [6, './imgs/50 2m.png'],
+		"caño 50 1m": [0, './imgs/50 1m.png'],
+		"caño 50 50cm": [2, './imgs/50 30cm.png'],
+		"caño 50 30cm": [8, './imgs/50 30cm.png'],
+		"curva 50 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 50 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes40: {
+		"caño 40 4m": [0, './imgs/40 4m.png'],
+		"caño 40 2m": [6, './imgs/40 2m.png'],
+		"caño 40 1m": [0, './imgs/40 1m.png'],
+		"caño 40 50cm": [2, './imgs/40 30cm.png'],
+		"caño 40 30cm": [8, './imgs/40 30cm.png'],
+		"curva 40 45'": [4, './imgs/curva 63 45 grados.png'],
+		"curva 40 90'": [18, './imgs/codo 63 90 grados.png'],
+	},
+
+	extras: {
+		"pileta de patio": [4, './imgs/*.png'],
+		"boca de acceso": [2, './imgs/*.png'],
+		"subida cocina 50 65cm": [1, './imgs/*.png'],
+		"subida baño 40 55cm": [1, './imgs/*.png'],
+		"subida lavarropas 40 51cm": [1, './imgs/*.png'],
+		"varilla roscada 30cm": [1, './imgs/*.png'],
+		"perfil L": [3, './imgs/*.png'], 
+	}
+
+};
+
+
+
+
+//Deptos tipo 3
+let type3 = {
+	pipes110: {
+		"caño 110 4m": [4, './imgs/110 4m.png'],
+		"caño 110 2m": [0, './imgs/110 2m.png'],
+		"caño 110 1m": [4, './imgs/110 1m.png'],
+		"caño 110 50cm": [0, './imgs/110 30cm.png'],
+		"caño 110 30cm": [4, './imgs/110 30cm.png'],
+		"ramal Y 110 110": [2, './imgs/ramal Y 110.png'],
+		"ramal Y 110 64": [2, './imgs/ramal Y 110 64.png'],
+		"ramal L c/vent": [2, './imgs/ramal L 110 ventilacion.png'],
+		"curva 110 45'": [2, './imgs/curva 110 45 grados.png'],
+		"curva 110 90'": [2, './imgs/codo 110 90 grados.png'],
+	},
+
+	pipes63: {
+		"caño 63 4m": [0, './imgs/63 4m.png'],
+		"caño 63 2m": [6, './imgs/63 2m.png'],
+		"caño 63 1m": [0, './imgs/63 1m.png'],
+		"caño 63 50cm": [2, './imgs/63 30cm.png'],
+		"caño 63 30cm": [8, './imgs/63 30cm.png'],
+		"ramal Y 63 63": [2, './imgs/ramal Y 63.png'],
+		"curva 63 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 63 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes50: {
+		"caño 50 4m": [0, './imgs/50 4m.png'],
+		"caño 50 2m": [6, './imgs/50 2m.png'],
+		"caño 50 1m": [0, './imgs/50 1m.png'],
+		"caño 50 50cm": [2, './imgs/50 30cm.png'],
+		"caño 50 30cm": [8, './imgs/50 30cm.png'],
+		"curva 50 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 50 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes40: {
+		"caño 40 4m": [0, './imgs/40 4m.png'],
+		"caño 40 2m": [6, './imgs/40 2m.png'],
+		"caño 40 1m": [0, './imgs/40 1m.png'],
+		"caño 40 50cm": [2, './imgs/40 30cm.png'],
+		"caño 40 30cm": [8, './imgs/40 30cm.png'],
+		"curva 40 45'": [4, './imgs/curva 63 45 grados.png'],
+		"curva 40 90'": [18, './imgs/codo 63 90 grados.png'],
+	},
+
+	extras: {
+		"pileta de patio": [4, './imgs/*.png'],
+		"boca de acceso": [2, './imgs/*.png'],
+		"varilla roscada 30cm": [12, './imgs/*.png'],
+		"perfil L": [6, './imgs/*.png'], 
+	}
+};
+
+
+
+
+//Deptos tipo 4
+let type4 = {
+	pipes110: {
+		"caño 110 4m": [4, './imgs/110 4m.png'],
+		"caño 110 2m": [0, './imgs/110 2m.png'],
+		"caño 110 1m": [4, './imgs/110 1m.png'],
+		"caño 110 50cm": [0, './imgs/110 30cm.png'],
+		"caño 110 30cm": [4, './imgs/110 30cm.png'],
+		"ramal Y 110 110": [2, './imgs/ramal Y 110.png'],
+		"ramal Y 110 64": [2, './imgs/ramal Y 110 64.png'],
+		"ramal L c/vent": [2, './imgs/ramal L 110 ventilacion.png'],
+		"curva 110 45'": [2, './imgs/curva 110 45 grados.png'],
+		"curva 110 90'": [2, './imgs/codo 110 90 grados.png'],
+	},
+
+	pipes63: {
+		"caño 63 4m": [0, './imgs/63 4m.png'],
+		"caño 63 2m": [6, './imgs/63 2m.png'],
+		"caño 63 1m": [0, './imgs/63 1m.png'],
+		"caño 63 50cm": [2, './imgs/63 30cm.png'],
+		"caño 63 30cm": [8, './imgs/63 30cm.png'],
+		"ramal Y 63 63": [2, './imgs/ramal Y 63.png'],
+		"curva 63 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 63 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes50: {
+		"caño 50 4m": [0, './imgs/50 4m.png'],
+		"caño 50 2m": [6, './imgs/50 2m.png'],
+		"caño 50 1m": [0, './imgs/50 1m.png'],
+		"caño 50 50cm": [2, './imgs/50 30cm.png'],
+		"caño 50 30cm": [8, './imgs/50 30cm.png'],
+		"curva 50 45'": [18, './imgs/curva 63 45 grados.png'],
+		"curva 50 90'": [0, './imgs/curva 63 90 grados.png'],
+	},
+
+	pipes40: {
+		"caño 40 4m": [0, './imgs/40 4m.png'],
+		"caño 40 2m": [6, './imgs/40 2m.png'],
+		"caño 40 1m": [0, './imgs/40 1m.png'],
+		"caño 40 50cm": [2, './imgs/40 30cm.png'],
+		"caño 40 30cm": [8, './imgs/40 30cm.png'],
+		"curva 40 45'": [4, './imgs/curva 63 45 grados.png'],
+		"curva 40 90'": [18, './imgs/codo 63 90 grados.png'],
+	},
+};

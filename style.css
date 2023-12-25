@@ -75,6 +75,16 @@ main {
 	min-width: 300px;
 }
 
+.firstMainGreeting {
+	padding: 50px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.firstMain .cardImgContainer {
+	padding: 50px;
+}
+
 .twoDeptos {
 	font-size: 0.8rem;
 	padding: 20px;
@@ -123,5 +133,9 @@ h2 {
 .amount {
 	font-weight: 600;
 	font-size: 1.2rem;
+}
+
+.hide {
+	display: none;
 }
 
