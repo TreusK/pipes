@@ -1,5 +1,9 @@
 /* General */
 
+:root {
+	color-scheme: only light;
+}
+
 * {
 	box-sizing: border-box;
 	padding: 0;
